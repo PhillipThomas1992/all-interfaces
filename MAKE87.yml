@@ -6,39 +6,48 @@ interfaces:
       name: zenoh
       protocol: TCP
       target_port: 7447
+      publish_mode: Ingress
+      is_system_interface: false
+      is_dev_interface: false
+    subscribers:
+      - name: multi
+        spec:
+          string: text
+        encoding: utf-8
+        multi_connect: true
+      - name: single
+        spec:
+          string: text
+        encoding: utf-8
+        multi_connect: false
+
+
+    peers:
+      - name: peer1
+        spec:
+          string: text
     publishers:
       - name: outgoing_message
         spec:
-          make87_message: make87_messages.text.PlainText
-        encoding: proto
-        config:
-          type: object
-          properties:
-            congestion_control:
-              type: string
-              enum: [ DROP, BLOCK ]
-              default: DROP
-            priority:
-              type: string
-              enum:
-                - REAL_TIME
-                - INTERACTIVE_HIGH
-                - INTERACTIVE_LOW
-                - DATA_HIGH
-                - DATA
-                - DATA_LOW
-                - BACKGROUND
-              default: DATA
-            express:
-              type: boolean
-              default: true
-            reliability:
-              type: string
-              enum: [ BEST_EFFORT, RELIABLE ]
-              default: RELIABLE
+          string: text
+        encoding: utf-8
+    servers:
+      - name: server1
+        spec:
+          string: text
+        encoding: utf-8
+    clients:
+      - name: singleclient
+        spec:
+          string: text
+      - name: multiclient
+        spec:
+          string: text
+        multi_connect: true
 container_config:
   environment:
     RUST_LOG: info
+config: null
 build:
   build_kit:
     name: python3

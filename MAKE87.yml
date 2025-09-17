@@ -33,7 +33,7 @@ interfaces:
       - name: multiclient1
         spec:
           string: text
-        multi_connect: true
+        multi_connect: false
     servers:
       - name: server1
         spec:

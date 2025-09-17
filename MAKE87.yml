@@ -42,6 +42,9 @@ interfaces:
       - name: peer
         spec:
           string: text
+      - name: peer2
+        spec:
+          string: text
 container_config:
   environment:
     RUST_LOG: info

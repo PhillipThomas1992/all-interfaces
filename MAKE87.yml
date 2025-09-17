@@ -39,7 +39,7 @@ interfaces:
         spec:
           string: text
     peers:
-      - name: peer1
+      - name: peer
         spec:
           string: text
 container_config:

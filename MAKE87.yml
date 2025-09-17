@@ -9,41 +9,39 @@ interfaces:
       publish_mode: Ingress
       is_system_interface: false
       is_dev_interface: false
-    subscribers:
-      - name: multi
-        spec:
-          string: text
-        encoding: utf-8
-        multi_connect: true
-      - name: single
-        spec:
-          string: text
-        encoding: utf-8
-        multi_connect: false
-
-
-    peers:
-      - name: peer1
-        spec:
-          string: text
     publishers:
       - name: outgoing_message
         spec:
           string: text
         encoding: utf-8
-    servers:
-      - name: server1
+    subscribers:
+      - name: multi
         spec:
           string: text
         encoding: utf-8
+        multi_connect: false
+      - name: single
+        spec:
+          string: text
+        encoding: utf-8
+        multi_connect: false
     clients:
       - name: singleclient
         spec:
           string: text
+        multi_connect: false
       - name: multiclient
         spec:
           string: text
-        multi_connect: true
+        multi_connect: false
+    servers:
+      - name: server1
+        spec:
+          string: text
+    peers:
+      - name: peer1
+        spec:
+          string: text
 container_config:
   environment:
     RUST_LOG: info

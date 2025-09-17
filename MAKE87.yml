@@ -19,7 +19,7 @@ interfaces:
         spec:
           string: text
         encoding: utf-8
-        multi_connect: true
+        multi_connect: false
       - name: single
         spec:
           string: text
@@ -33,13 +33,13 @@ interfaces:
       - name: multiclient1
         spec:
           string: text
-        multi_connect: true
+        multi_connect: false
     servers:
       - name: server1
         spec:
           string: text
     peers:
-      - name: peer1
+      - name: peers2
         spec:
           string: text
 container_config:

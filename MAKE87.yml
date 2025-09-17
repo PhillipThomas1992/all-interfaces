@@ -19,7 +19,7 @@ interfaces:
         spec:
           string: text
         encoding: utf-8
-        multi_connect: false
+        multi_connect: true
       - name: single
         spec:
           string: text

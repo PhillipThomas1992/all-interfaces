@@ -15,7 +15,7 @@ interfaces:
           string: text
         encoding: utf-8
     subscribers:
-      - name: multi
+      - name: multi2
         spec:
           string: text
         encoding: utf-8
